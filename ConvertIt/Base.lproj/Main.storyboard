@@ -19,7 +19,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="5C1-mY-EVC" userLabel="UnitConvert">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="5C1-mY-EVC" userLabel="Unit Converter Stack">
                                 <rect key="frame" x="16" y="72" width="343" height="400"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select Units to Convert from" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LML-o0-I2H">
@@ -198,14 +198,40 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="w5s-ZX-hGt" userLabel="UTC Stack">
+                                <rect key="frame" x="16" y="306" width="343" height="55"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UTC Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h80-kg-bGb">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="21.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HH:MM:SS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IhT-zp-d6Q">
+                                        <rect key="frame" x="0.0" y="21.5" width="343" height="33.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="5C1-mY-EVC" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="6uM-V5-Pih"/>
+                            <constraint firstItem="w5s-ZX-hGt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="7vc-d6-qcO"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="w5s-ZX-hGt" secondAttribute="trailing" constant="16" id="Pu1-Nl-pfu"/>
+                            <constraint firstItem="w5s-ZX-hGt" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="YYx-y2-m9y"/>
+                            <constraint firstItem="w5s-ZX-hGt" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Yua-yj-8tZ"/>
                             <constraint firstItem="5C1-mY-EVC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="gX9-2E-JAI"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5C1-mY-EVC" secondAttribute="trailing" constant="16" id="zGw-ac-yYN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="w5s-ZX-hGt"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Category" largeTitleDisplayMode="always" id="u6g-53-wY2"/>
                     <connections>
@@ -213,6 +239,9 @@
                         <outlet property="convertFromLabel" destination="ntH-NC-9l9" id="R3a-nR-GB7"/>
                         <outlet property="convertToField" destination="yTm-Oz-sId" id="aHN-hF-4qr"/>
                         <outlet property="convertToLabel" destination="nvr-cC-OJb" id="3vc-a4-dbY"/>
+                        <outlet property="unitConverterStackView" destination="5C1-mY-EVC" id="aPf-aO-Pum"/>
+                        <outlet property="utcLabel" destination="IhT-zp-d6Q" id="Xv0-FK-jMO"/>
+                        <outlet property="utcStackView" destination="w5s-ZX-hGt" id="cVt-lE-m7Z"/>
                     </connections>
                 </viewController>
             </objects>

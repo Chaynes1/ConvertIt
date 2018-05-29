@@ -10,10 +10,15 @@ import UIKit
 
 class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
 
+    
+    @IBOutlet weak var unitConverterStackView: UIStackView!
+    @IBOutlet weak var utcStackView: UIStackView!
     @IBOutlet weak var convertFromField: UITextField!
     @IBOutlet weak var convertToField: UITextField!
     @IBOutlet weak var convertFromLabel: UILabel!
     @IBOutlet weak var convertToLabel: UILabel!
+    @IBOutlet weak var utcLabel: UILabel!
+    
     
     var convertFromPickerView = UIPickerView()
     var convertToPickerView = UIPickerView()
@@ -31,12 +36,21 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     }
 
     func setupUi() {
-       
         
+        utcStackView.isHidden = true
+        unitConverterStackView.isHidden = true
+        
+        //updateUTCStack()
         updateUnitConverterStack()
     }
     
+    func updateUTCStack() {
+        utcStackView.isHidden = false
+    }
+    
     func updateUnitConverterStack() {
+        
+        unitConverterStackView.isHidden = false
         
         //Fill Array for picker views
         pickerViewKeys = Array(areaUnits.keys)
@@ -64,14 +78,14 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     func calculateConvertedUnits() {
         
         guard let convertFromValue = Double(convertValueStr),
-            let convertFromMultiplier = areaUnits[convertFromField.text!],
-            let convertToMultiplier = areaUnits[convertToField.text!] else {
+            let convertFromCoefficient = areaUnits[convertFromField.text!],
+            let convertToCoefficient = areaUnits[convertToField.text!] else {
                 fatalError("Crash")
         }
         
-        let baseUnit = convertFromValue / convertFromMultiplier
+        let baseUnit = convertFromValue / convertFromCoefficient
         
-        let convertToValue = baseUnit * convertToMultiplier
+        let convertToValue = baseUnit * convertToCoefficient
         
         convertFromLabel.text = String(convertFromValue)
         convertToLabel.text = String(convertToValue)
